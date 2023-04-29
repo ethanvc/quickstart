@@ -1,2 +1,2 @@
 # quickstart
-for verify usage of any thing interesting.
+quick start for everything.
