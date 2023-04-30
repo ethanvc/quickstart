@@ -13,7 +13,7 @@ type User struct {
 
 // TableName 自定义表名
 func (u *User) TableName() string {
-	return fmt.Sprintf("test_db_%d.test_tab", u.Id%2)
+	return fmt.Sprintf("`test_db_%d`.`test_tab`", u.Id%2)
 }
 
 func init() {
@@ -34,6 +34,7 @@ func getAlias(userId int) string {
 }
 
 func main() {
+	orm.Debug = true
 	u := &User{
 		Id:   2,
 		Name: "zhangsan",
