@@ -1,6 +1,6 @@
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
-github.com/ethanvc/beego/v2 v2.0.0-20230430091032-9bf8a76c5332 h1:m135k78Pzedoc/BkA5GkvodLiFEnKz6Z8hyj5u48004=
-github.com/ethanvc/beego/v2 v2.0.0-20230430091032-9bf8a76c5332/go.mod h1:LdHwvT8/QdD7yWhKFT/fci2O9p0BDBIZu36cH39J13Q=
+github.com/ethanvc/beego/v2 v2.0.0-20230430122530-b788d3b70564 h1:nCK5fEnCdX7UDTn/1U5Bv72XyPjiqB7hRgiUgdLxtMU=
+github.com/ethanvc/beego/v2 v2.0.0-20230430122530-b788d3b70564/go.mod h1:LdHwvT8/QdD7yWhKFT/fci2O9p0BDBIZu36cH39J13Q=
 github.com/go-sql-driver/mysql v1.7.1 h1:lUIinVbN1DY0xBg0eMOzmmtGoHwWBbvnWubQUrtU8EI=
 github.com/go-sql-driver/mysql v1.7.1/go.mod h1:OXbVy3sEdcQ2Doequ6Z5BW6fXNQTmx+9S1MCJN5yJMI=
 github.com/hashicorp/golang-lru v0.5.4 h1:YDjusn29QI/Das2iO9M0BHnIbxPeyuCHsjMW+lJfyTc=

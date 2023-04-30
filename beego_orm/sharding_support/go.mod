@@ -7,7 +7,7 @@ require (
 	github.com/go-sql-driver/mysql v1.7.1
 )
 
-replace github.com/beego/beego/v2 v2.0.7 => github.com/ethanvc/beego/v2 v2.0.0-20230430091032-9bf8a76c5332
+replace github.com/beego/beego/v2 v2.0.7 => github.com/ethanvc/beego/v2 v2.0.0-20230430122530-b788d3b70564
 
 require (
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
