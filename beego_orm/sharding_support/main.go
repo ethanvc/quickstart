@@ -11,9 +11,9 @@ type User struct {
 	Name string
 }
 
-// 自定义表名
+// TableName 自定义表名
 func (u *User) TableName() string {
-	return getTableName(u.Id)
+	return fmt.Sprintf("test_db_%d.test_tab", u.Id%2)
 }
 
 func init() {
@@ -21,48 +21,29 @@ func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 
 	// 注册数据库连接
-	orm.RegisterDataBase("instance1_db1", "mysql", "root:@tcp(127.0.0.1:3306)/?charset=utf8mb4")
-	orm.RegisterDataBase("instance1_db2", "mysql", "root:@tcp(127.0.0.1:3306)/?charset=utf8mb4")
-	orm.RegisterDataBase("instance2_db3", "mysql", "root:@tcp(127.0.0.1:3307)/?charset=utf8mb4")
-	orm.RegisterDataBase("instance2_db4", "mysql", "root:@tcp(127.0.0.1:3307)/?charset=utf8mb4")
+	orm.RegisterDataBase("mysql0", "mysql", "root:@tcp(127.0.0.1:10000)/?charset=utf8mb4")
+	orm.RegisterDataBase("mysql1", "mysql", "root:@tcp(127.0.0.1:10001)/?charset=utf8mb4")
 
 	// 注册模型
 	orm.RegisterModel(new(User))
 }
 
-// 获取表名的函数，根据用户ID进行分表
-func getTableName(userId int) string {
-	tableIndex := userId % 2 // 两个表，取模2
-	return fmt.Sprintf("user%d", tableIndex+1)
-}
-
 // 获取分库分表对应的数据库连接
-func getAlias(userId, instanceId int) string {
-	dbIndex := userId % 2 // 两个数据库，取模2
-	return fmt.Sprintf("instance%d_db%d", instanceId, dbIndex+1)
+func getAlias(userId int) string {
+	return fmt.Sprintf("mysql%d", userId%2)
 }
 
 func main() {
-	userId := 2
-	instanceId := 1                       // 使用第一个实例
-	alias := getAlias(userId, instanceId) // 获取数据库连接别名
+	u := &User{
+		Id:   2,
+		Name: "zhangsan",
+	}
+	o := orm.NewOrmUsingDB(getAlias(u.Id))
 
-	o := orm.NewOrmUsingDB(alias)
-
-	user := User{Id: userId, Name: "testuser"}
-	_, err := o.Insert(&user)
+	_, err := o.Insert(u)
 	if err != nil {
 		fmt.Println("Insert error:", err)
 		return
 	}
-
-	var users []*User
-	qs := o.QueryTable("user")
-	_, err = qs.Filter("id", userId).All(&users)
-	if err != nil {
-		fmt.Println("Query error:", err)
-		return
-	}
-
-	fmt.Println("Users:", users)
+	fmt.Printf("%d\n", u.Id)
 }

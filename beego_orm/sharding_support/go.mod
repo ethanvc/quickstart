@@ -1,10 +1,10 @@
-module github.com/ethanvc/quickstart/beego_orm
+module beego_orm
 
 go 1.19
 
 require (
 	github.com/beego/beego/v2 v2.0.7
-	github.com/go-sql-driver/mysql v1.7.0
+	github.com/go-sql-driver/mysql v1.7.1
 )
 
 require (
