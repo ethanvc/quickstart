@@ -59,6 +59,7 @@ func writeCache(c context.Context, key string, version int, val *CacheValue) err
 		val.Version = version + 1
 		_, err = tx.TxPipelined(c, func(pipe redis.Pipeliner) error {
 			buf, _ := json.Marshal(val)
+			// value type does support struct.
 			pipe.Set(c, key, buf, 0)
 			return nil
 		})
