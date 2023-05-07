@@ -1,5 +1,6 @@
 # https://redis.io/docs/management/scaling/
 # docker build -t sjw2docker/single_redis_cluster:7.0.11 .
+# docker push sjw2docker/single_redis_cluster:7.0.11
 FROM redis:7.0.11
 
 ENV CLUSTER_INSTANCE_COUNT=6
