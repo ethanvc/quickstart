@@ -13,23 +13,25 @@ type CacheValue struct {
 }
 
 var rdb = redis.NewClient(&redis.Options{
-	Addr:     "127.0.0.1:6379",
+	Addr:     "127.0.0.1:10000",
 	Password: "",
 	DB:       0,
 })
 
 func main() {
-	c := context.Background()
-	val, err := getFromCache(c, "0")
-	if err == redis.Nil {
-		val = &CacheValue{}
-	} else if err != nil {
-		return
-	}
-	val.Data++
-	err = writeCache(c, "0", val.Version, val)
-	if err != nil {
-		return
+	for {
+		c := context.Background()
+		val, err := getFromCache(c, "0")
+		if err == redis.Nil {
+			val = &CacheValue{}
+		} else if err != nil {
+			continue
+		}
+		val.Data++
+		err = writeCache(c, "0", val.Version, val)
+		if err != nil {
+			continue
+		}
 	}
 }
 
