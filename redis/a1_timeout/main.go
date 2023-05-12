@@ -7,20 +7,10 @@ import (
 	"time"
 )
 
-// docker run --rm -it -p 10000:6379 -name slow_redis redis
-// sudo pfctl -f slow_redis.conf
-// query if firewall well:
-// sudo pfctl -sr
-// enable fireall:
-// sudo pfctl -e
-// disable firewall:
-// sudo pfctl -d
-// query if enabled:
-// sudo pfctl -s -info
-
+// trigger connection pool timeout error.
 func main() {
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     ":10000",
+		Addr:     "3.3.3.3:10000",
 		PoolSize: 1,
 	})
 	for i := 0; i < 3; i++ {
