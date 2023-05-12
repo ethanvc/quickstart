@@ -20,8 +20,8 @@ import (
 
 func main() {
 	rdb := redis.NewClient(&redis.Options{
-		Addr: ":10000",
-		// PoolSize: 1,
+		Addr:     ":10000",
+		PoolSize: 1,
 	})
 	for i := 0; i < 3; i++ {
 		go get(rdb, "0")
@@ -30,6 +30,8 @@ func main() {
 }
 
 func get(rdb *redis.Client, key string) {
-	v := rdb.Get(context.Background(), key)
+	c, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+	defer cancel()
+	v := rdb.Get(c, key)
 	fmt.Println(v)
 }
