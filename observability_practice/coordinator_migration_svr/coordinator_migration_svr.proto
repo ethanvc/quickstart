@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/ethanvc/quickstart/observability_practice/coordinator_migration_svr";
+
+package coordinator_migration_svr;
+
+service CoordinatorMigrationSvr {
+  rpc GetUserDetail (GetUserDetailReq) returns (GetUserDetailResp) {}
+}
+
+// The request message containing the user's name.
+message GetUserDetailReq {
+  int64 uid = 1;
+}
+
+// The response message containing the greetings
+message GetUserDetailResp {
+}
