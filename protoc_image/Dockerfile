@@ -4,11 +4,13 @@
 
 # method for protoc to find the plugin: when you specified go_out option, protoc will find protoc-gen-go command in PATH.
 # so all you need to let protoc aware you plugin is add your plugin directory in PATH env.
+
+# docker build -t protoc_image .
 FROM golang:latest as build_protoc_gen_go
 
 RUN set -ex && \
-    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28 && \
-    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.30 && \
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.3
 
 FROM ubuntu:latest
 COPY --from=build_protoc_gen_go /go/bin/ /protoc_plugins/

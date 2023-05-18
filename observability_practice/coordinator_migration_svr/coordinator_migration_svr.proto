@@ -1,3 +1,5 @@
+// docker run --rm -it -v $(pwd):/workdir protoc_image --go_opt=paths=source_relative --go-grpc_opt=paths=source_relative --go_out=. --go-grpc_out=. coordinator_migration_svr.proto
+// tips: use --go_out=paths=source_relative:. to generate file without directory structure.
 syntax = "proto3";
 
 option go_package = "github.com/ethanvc/quickstart/observability_practice/coordinator_migration_svr";
