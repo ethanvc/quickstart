@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wechat h5 login</title>
+    <script type="text/javascript">
+        function redirectToUrl() {
+            var appid = document.getElementById('appId').value;
+            let url = new URL("https://open.weixin.qq.com/connect/oauth2/authorize");
+            let queryStrs = new URLSearchParams();
+            queryStrs.append("appid", appid);
+            queryStrs.append("redirect_uri", "");
+            queryStrs.append("response_type", "code");
+            queryStrs.append("scope", "snsapi_userinfo");
+            queryStrs.append("state", "user-defined-state");
+            url.hash = "wechat_redirect";
+            url.search = queryStrs.toString();
+            window.location.href = url.toString();
+        }
+    </script>
+</head>
+<body><label>App Id:</label><input type="text" id="appId" placeholder="Enter App Id">
+<button onclick="redirectToUrl()">Login By Wechat</button>
+<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">Log in with WeChat</a>
+</body>
+</html>
