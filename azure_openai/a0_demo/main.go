@@ -26,7 +26,7 @@ type Message struct {
 func main() {
 	apiKey := os.Getenv("AZURE_OPENAI_KEY")
 	endpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
-	url := fmt.Sprintf("%s/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-05-15", endpoint)
+	url := fmt.Sprintf("%s/openai/deployments/brainai001/chat/completions?api-version=2023-05-15", endpoint)
 	var req CompletionsReq
 	req.Messages = append(req.Messages,
 		Message{
