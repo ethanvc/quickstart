@@ -26,7 +26,7 @@ type Message struct {
 func main() {
 	apiKey := os.Getenv("AZURE_OPENAI_KEY")
 	endpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
-	url := fmt.Sprintf("%s/openai/deployments/gpt35/chat/completions?api-version=2023-05-15", endpoint)
+	url := fmt.Sprintf("%s/openai/deployments/gpt-35-turbo/chat/completions?api-version=2023-05-15", endpoint)
 	var req CompletionsReq
 	req.Messages = append(req.Messages,
 		Message{
@@ -43,6 +43,7 @@ func main() {
 	}
 	httpReq.Header.Set("Content-Type", "application/json")
 	httpReq.Header.Set("api-key", apiKey)
+	// fmt.Println(http2curl.GetCurlCommand(httpReq))
 	httpResp, err := http.DefaultClient.Do(httpReq)
 	if err != nil {
 		panic(err)
