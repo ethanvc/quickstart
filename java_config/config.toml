@@ -1,0 +1,43 @@
+# the most baisc configuration, can directly used in local debug.
+[main_database]
+db_user = "root"
+db_host = "127.0.0.1"
+db_port = 3306
+db_pass = ""
+db_name = "my_test_db"
+max_connection_count = 5
+
+[migration_config]
+max_in_process_count = 10
+concurrent_migration_count = 2
+auto_migration = false
+
+[user_team_db]
+db_user = "root"
+db_host = "127.0.01"
+db_port = 3306
+db_pass = ""
+db_name = "user_db"
+max_connection_count = 5
+
+[[participant_config]]
+id=3
+svr="svr1"
+method = "xxx"
+[[participant_config]]
+id=6
+svr="svr2"
+method = "xxx"
+[[participant_config]]
+id=9
+svr="svr3"
+method = "xxx"
+
+[redis_config]
+addrs = [
+    "127.0.0.1:6379",
+    "127.0.0.1:6380",
+    "127.0.0.1:6381",
+]
+key_prefix="/{{cid}}/flower"
+pass = "{{cid}}fewio23dd@1"

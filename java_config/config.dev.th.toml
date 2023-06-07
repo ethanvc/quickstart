@@ -1,0 +1,6 @@
+[redis_config]
+addrs = [
+    "redis0.abc.com:30001",
+    "redis1.abc.com:30001",
+    "redis2.abc.com:30001",
+]

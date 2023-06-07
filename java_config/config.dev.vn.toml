@@ -1,0 +1,6 @@
+[redis_config]
+addrs = [
+    "redis0.{{cid}}.abc.com:32001",
+    "redis1.{{cid}}.abc.com:32001",
+    "redis2.{{cid}}.abc.com:32001",
+]

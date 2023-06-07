@@ -1,0 +1,15 @@
+[main_database]
+db_user = "testdevuser"
+db_host = "mydbhost.xx.com"
+db_port = 3306
+db_pass = ""
+db_name = "my_test_{{cid}}_db"
+max_connection_count = 5
+
+[user_team_db]
+db_user = "devtestuser"
+db_host = "userdb.test.com"
+db_port = 3306
+db_pass = ""
+db_name = "user_{{cid}}_db"
+max_connection_count = 5
