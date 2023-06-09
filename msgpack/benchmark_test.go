@@ -35,6 +35,8 @@ var v0proto = &DataV0Proto{
 
 var v0msgpack = Must(msgpack.Marshal(v0))
 var v0json = Must(json.Marshal(v0))
+
+// directly initialize it with proto.Marshal will panic.
 var v0protobytes []byte
 
 func init() {
