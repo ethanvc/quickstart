@@ -19,7 +19,7 @@ export default function Home() {
                         />{item}</li>
                     ))}
                 </ul>
-                <button>确认支付</button>
+                <button className="block">确认支付</button>
             </div>
         </div>
     )
