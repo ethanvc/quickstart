@@ -19,7 +19,7 @@ export default function Home() {
                         />{item}</li>
                     ))}
                 </ul>
-                <button className="block">确认支付</button>
+                <button className="block w-[calc(100%-5px)] text-[rgb(24,160,88)] bg-[rgba(24,160,88,0.16)] p-1" type="button">确认支付</button>
             </div>
         </div>
     )
