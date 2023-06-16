@@ -29,7 +29,7 @@ function PlanCard({items}: {items:string[]}) {
                 ))}
             </ul>
         </div>
-        <button className="h-[32px] block w-[calc(100%-5px)] text-[rgb(24,160,88)] bg-[rgba(24,160,88,0.16)] p-1"
+        <button className="h-[32px] block w-[calc(100%-5px)] text-[rgb(24,160,88)] bg-[rgba(24,160,88,0.16)] p-1 hover:bg-[rgba(24,160,88,0.30)]"
                 type="button">确认支付
         </button>
     </div>);
