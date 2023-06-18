@@ -1,6 +1,12 @@
+"use client";
 import Image from 'next/image'
+import {useEffect} from "react";
+import {initFlowbite} from "flowbite";
 
 export default function Home() {
+  useEffect(()=>{
+    initFlowbite()
+  },[])
   return (
       <div>
         <header>
