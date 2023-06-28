@@ -2,6 +2,7 @@
 // import { ChakraProvider, Input, Button} from '@chakra-ui/react'
 import {useState} from "react";
 import { Button , TextInput} from 'flowbite-react';
+import ReactDOM from "react-dom";
 
 export default function Home() {
   return (
@@ -12,14 +13,16 @@ export default function Home() {
 }
 
 function RealHome(){
+    console.log("rerender");
     const [formData, setFormData] = useState({name:"", hobby: ""});
-    return (
+    const content = (
         <div>
             <label>name</label>
-            <TextInput onChange={e=>setFormData({...formData, name: e.target.value})}></TextInput>
+            <TextInput key="name" onChange={e=>setFormData({...formData, name: e.target.value})}></TextInput>
             <label>hobby</label>
-            <TextInput onChange={e=>setFormData({...formData, hobby: e.target.value})}></TextInput>
+            <TextInput key="hobby" onChange={e=>setFormData({...formData, hobby: e.target.value})}></TextInput>
             <Button onClick={()=>console.log(formData)}>Result</Button>
         </div>
     );
+    return ReactDOM.createPortal(content, document.body);
 }
