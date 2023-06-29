@@ -43,3 +43,7 @@ in tailwind.config.js file add:
 corePlugins:{
 preflight: false
 }
+
+install flowbite-react:
+npm i flowbite flowbite-react
+
