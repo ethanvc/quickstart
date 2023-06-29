@@ -1,3 +1,4 @@
+'use client';
 import {useState} from "react";
 import { Modal, Button, Checkbox, Label, TextInput} from 'flowbite-react';
 
@@ -5,7 +6,7 @@ let refreshCount = 0;
 export function VerifyFlowbiteModal(){
     const [formData, setFormData] =
         useState({name:"", hobby: ""});
-    const onInputChange = (e)=>{
+    const onInputChange = (e :{target:{name:string, value:string}})=>{
       setFormData({...formData, [e.target.name]: e.target.value});
     };
     refreshCount++;
@@ -16,8 +17,7 @@ export function VerifyFlowbiteModal(){
             <Modal.Body>
                 <TextInput name="name" onChange={onInputChange}></TextInput>
                 <TextInput name="hobby" onChange={onInputChange}></TextInput>
-                <Label>{JSON.stringify(formData)}</Label>
-                <Label>{refreshCount}</Label>
+                <Label>refresh count: {refreshCount}, data:{JSON.stringify(formData)}</Label>
             </Modal.Body>
         </Modal>
         </div>
