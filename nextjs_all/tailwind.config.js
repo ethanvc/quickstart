@@ -16,6 +16,6 @@ module.exports = {
   },
   plugins: [],
   corePlugins:{
-    preflight: false // 解决和ant-design的冲突 https://dev.to/fabiobiondi/react-antd-and-tailwind-fix-css-conflicts-5542
+    preflight: false
   }
 }
