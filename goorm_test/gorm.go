@@ -16,7 +16,7 @@ type Result struct {
 }
 
 func GormMain() {
-	db, err := gorm.Open(mysql.Open("root:@tcp(localhost:3306)/test"), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(MySqlDsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
