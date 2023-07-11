@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestSqlDiffMain(t *testing.T) {
+func TestSqlDiffSqldef(t *testing.T) {
 	currentSql := `
 CREATE TABLE new_table (
     id INT PRIMARY KEY,
