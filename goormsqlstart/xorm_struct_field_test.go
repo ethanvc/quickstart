@@ -16,6 +16,12 @@ func TestXormStructField(t *testing.T) {
 		UserName: "nihao",
 	}})
 	assert.NoError(t, err)
+	u := &User{
+		UserId: 1,
+	}
+	// if column content is empty string, still works well
+	_, err = engine.Get(u)
+	assert.NoError(t, err)
 }
 
 type User struct {
