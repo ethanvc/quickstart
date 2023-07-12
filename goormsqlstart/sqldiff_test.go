@@ -1,4 +1,4 @@
-package main
+package goormsqlstart
 
 import (
 	"github.com/k0kubun/sqldef/database"
